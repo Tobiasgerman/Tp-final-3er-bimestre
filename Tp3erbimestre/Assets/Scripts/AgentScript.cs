@@ -17,7 +17,7 @@ public class AgentScript : MonoBehaviour
     [SerializeField]  float tiempoPerdida = 2f;
     [SerializeField]  float tiempoSinVer = 0f;
     [SerializeField]  bool persiguiendo = false;
-    [SerializeField]  Transform puntoCercano;
+        private  Transform puntoCercano;
     [SerializeField] float minDistancia;
     [SerializeField]  NavMeshAgent agente;
     [SerializeField]  Animator anim;
