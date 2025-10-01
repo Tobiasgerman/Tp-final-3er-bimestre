@@ -4,27 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class AgentScript : MonoBehaviour
 {
-    
-    public Transform[] lugares;
-    public int destinoActual = 0;
+
+    [SerializeField]  Transform[] lugares;
+    [SerializeField]  int destinoActual = 0;
 
 
-    public Transform jugador;
-    public float capacidadVision = 10f;
-    public float anguloVision = 60f;
-    public float distanciaPerseguir = 1.5f;
-    public Transform vistaNPC;
-    public float tiempoPerdida = 2f;
-
-
-    public float tiempoSinVer = 0f;
-    public bool persiguiendo = false;
-
-    public Transform puntoCercano;
-    public float minDistancia;
-
-    public NavMeshAgent agente;
-    public Animator anim;
+    [SerializeField]  Transform jugador;
+    [SerializeField]  float capacidadVision = 10f;
+    [SerializeField]  float anguloVision = 60f;
+    [SerializeField]  float distanciaPerseguir = 1.5f;
+    [SerializeField]  Transform vistaNPC;
+    [SerializeField]  float tiempoPerdida = 2f;
+    [SerializeField]  float tiempoSinVer = 0f;
+    [SerializeField]  bool persiguiendo = false;
+    [SerializeField]  Transform puntoCercano;
+    [SerializeField] float minDistancia;
+    [SerializeField]  NavMeshAgent agente;
+    [SerializeField]  Animator anim;
 
     private void Awake()
     {
@@ -36,7 +32,7 @@ public class AgentScript : MonoBehaviour
     {
         if (lugares.Length > 0)
         {
-            // El NPC comienza en el primer punto de patrulla
+            // El NPC comienza en el primer punto 
             agente.SetDestination(lugares[destinoActual].position);
         }
     }
@@ -61,7 +57,7 @@ public class AgentScript : MonoBehaviour
     {
         if (lugares.Length == 0) return;
 
-        // Cambia al siguiente punto de patrulla una vez que llega al actual
+        // Cambia al siguiente punto de una vez que llega al actual
         if (!agente.pathPending && agente.remainingDistance < 0.5f)
         {
             destinoActual = (destinoActual + 1) % lugares.Length;
